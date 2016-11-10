@@ -1,0 +1,24 @@
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-1 text-left">
+    <div class="panel panel-info">
+      <div class="panel-heading">Nuovo Membro</div>
+      <div class="panel-body text-left">
+        <form ng-submit="vm.create()">
+          <div class="form-group">
+            <label for="first">Nome</label>
+            <input type="text" class="form-control" id="first" placeholder="Nome" ng-model="vm.first">
+          </div>
+          <div class="form-group">
+            <label for="last">Cognome</label>
+            <input type="text" class="form-control" id="last" placeholder="Cognome" ng-model="vm.last">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="name@domain" ng-model="vm.email">
+          </div>
+          <button type="submit" class="btn btn-default">Salva</button>
+        </form>
+  </div>
+  </div>
+</div>

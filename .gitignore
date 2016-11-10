@@ -1,0 +1,15 @@
+*.DS_Store
+node_modules
+bower_components
+*.log
+*.swp
+config/*.json
+!config/devel.json
+!config/production.json
+!config/staging.json
+build/fonts
+build/libs
+build/vendors
+build/view
+build/index.html
+coverage

@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col col-md-4 col-md-offset-4">
+
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="searchFrom" class="col-md-2 control-label">Dal</label>
+        <div class="col-md-8">
+          <input class="form-control"  id="searchFrom" date-time format="DD/MM/YYYY" ng-model="vm.searchFrom" view="date" min-view="date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="searchTo" class="col-md-2 control-label">Al</label>
+        <div class="col-md-8">
+          <input class="form-control" id="searchTo" date-time format="DD/MM/YYYY" ng-model="vm.searchTo" view="date" min-view="date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="searchStatus" class="col-md-2 control-label">Stato</label>
+        <div class="col-md-8">
+          <select class="form-control" ng-model="vm.searchStatus">
+            <option value="">Tutti</option>
+            <option value="started">In Corso</option>
+            <option value="closed">Terminati</option>
+            <option value="afterwards">Inseriti</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-offset-1 col-md-9">
+          <button type="submit" class="btn btn-info" ng-click="vm.search()">Cerca</button>
+          <button type="button" class="btn btn-danger" ng-click="vm.searchClean()">Pulisci Filtri</button>
+          <button ng-show="vm.totalRecord > 0" type="button" class="btn btn-warning" csv-header="vm.exportFields" ng-csv="vm.exportData()" filename="report.csv">Esporta ({{vm.totalRecord}})</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 text-left">
+    <table class="table table-striped" st-pipe="vm.search" st-table="vm.tabledata">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Dal</th>
+          <th>Al</th>
+          <th>Durata</th>
+          <th>Stato</th>
+        </tr>
+      </thead>
+      <tbody ng-show="!vm.isLoading">
+        <tr ng-repeat="row in vm.tabledata">
+
+          <td><member-fullname member-id="{{row.memberId}}"></member-fullname></td>
+          <td>{{row.from | date : 'dd/MM/yyyy HH:mm:ss' }}</td>
+          <td ng-hide="row.status==='started'">{{row.to| date : 'dd/MM/yyyy HH:mm:ss' }}</td>
+          <td ng-hide="row.status!=='started'" colspan="2"  class="ts-started">in corso</td>
+          <td ng-hide="row.status==='started'">{{row.duration | secondsToHours}}</td>
+
+          <td>{{row.status | timesheetStatus}}</td>
+
+        </tr>
+        <tr>
+          <td colspan="6"  class="text-center" ng-show="vm.totalRecord === 0 && !vm.isLoading">
+            <div class="alert alert-warning" role="alert">nessun risultato</div>
+
+          </td>
+        </tr>
+      </tbody>
+      <tbody ng-show="vm.isLoading">
+        <tr>
+          <td colspan="6" class="text-center"><div class="alert alert-info" role="alert">Loading ...</div> </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="text-center" st-pagination="" colspan="4">
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="/">TimeTracker <small>alpha</small></a>
+    </div>
+
+    <form class="navbar-form navbar-right" role="login" ng-submit="vm.login()">
+      <div class="form-group">
+        <input type="text" class="form-control  input-sm" id="username" placeholder="username" ng-model="vm.username" ng-change="vm.loginChange()">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control input-sm" id="password" placeholder="password"  ng-model="vm.password" ng-change="vm.loginChange()">
+      </div>
+      <button type="submit" class="btn btn-info  btn-sm">login</button>
+    </form>
+
+
+  </div>
+</nav>

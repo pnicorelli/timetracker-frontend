@@ -1,0 +1,37 @@
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 text-left">
+    <table class="table table-striped" st-pipe="vm.getAll" st-table="vm.tabledata">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>Nome</th>
+          <th>email</th>
+
+        </tr>
+      </thead>
+      <tbody ng-show="!vm.isLoading">
+        <tr ng-repeat="row in vm.tabledata">
+          <td>
+            <button class="btn btn-sm btn-info" ng-click="vm.viewDetail(row._id)"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button class="btn btn-sm btn-warning" ng-click="vm.remove(row)"><i class="glyphicon glyphicon-remove"></i></button>
+          </td>
+          <td>{{row.first}} {{row.last}}</td>
+          <td>{{row.email}}</td>
+
+        </tr>
+      </tbody>
+      <tbody ng-show="vm.isLoading">
+        <tr>
+          <td colspan="4" class="text-center"><div class="alert alert-info" role="alert">Loading ...</div></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="text-center" st-pagination="" colspan="4">
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

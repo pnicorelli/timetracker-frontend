@@ -1,0 +1,6 @@
+{
+  "ENV": "devel",
+  "API": {
+    "url" : "https://timetracker-catenae.rhcloud.com"
+  }
+}

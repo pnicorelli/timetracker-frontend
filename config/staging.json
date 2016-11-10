@@ -1,0 +1,6 @@
+{
+  "ENV": "staging",
+  "API": {
+    "url" : "https://timetracker-catenae.rhcloud.com"
+  }
+}

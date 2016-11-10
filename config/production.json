@@ -1,0 +1,6 @@
+{
+  "ENV": "production",
+  "API": {
+    "url" : "https://timetracker-catenae.rhcloud.com"
+  }
+}

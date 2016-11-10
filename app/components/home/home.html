@@ -1,0 +1,26 @@
+<div class="row">
+
+  <div class="col-md-4 col-md-offset-2">
+    <div class="thumbnail">
+      <qrcode data="{{vm.currentAPK}}" size="250" ></qrcode>
+      <div class="caption">
+        <h3>Android</h3>
+        <p>Inquadra il QRCode o scarica l'app android dal link qui sotto</p>
+        <p><a href="{{vm.currentAPK}}" target="_blank" class="btn btn-info">Scarica l'APK</a></p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 ">
+    <div class="thumbnail">
+      <qrcode data="{{vm.currentIPA}}" size="250" ></qrcode>
+      <div class="caption">
+        <h3>IOS</h3>
+        <p>Inquadra il QRCode e scarica l'app per IOS</p>
+        <p><a href="{{vm.currentIPA}}" target="_blank" class="btn btn-info">Scarica l'IPA</a></p>
+
+      </div>
+    </div>
+  </div>
+</div>

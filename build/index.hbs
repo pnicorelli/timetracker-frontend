@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html id="html" lang="it" background ng-app="TimeTracker" >
+<head>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+  <title>TimeTracker</title>
+
+</head>
+
+
+<body id="bodyBG">
+  <div ng-controller="HeaderController as vm">
+    <div ng-include="vm.template"></div>
+  </div>
+  <div ng-view></div>
+
+
+
+  <!-- Vendors -->
+  <script src="libs/vendors.js"></script>
+  <link rel="stylesheet" href="libs/vendors.css">
+
+  <!-- TimeTracker CSS -->
+  <link rel="stylesheet" type="text/css" href="libs/{{ assetPath "style.css" }}">
+  <link rel="stylesheet" type="text/css" href="libs/{{ assetPath "custom.css" }}">
+
+
+  <!-- TimeTracker JS -->
+  <script src="libs/{{ assetPath "bundle.js" }}"></script>
+  <script src="libs/{{ assetPath "config.js" }}"></script>
+
+</body>
+</html>
